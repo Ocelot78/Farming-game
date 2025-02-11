@@ -1,0 +1,7 @@
+{
+    "tractor": {
+        "power": 150,
+        "used": false,
+        "cost": 35000
+    }
+}

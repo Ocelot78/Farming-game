@@ -1,0 +1,10 @@
+{
+    "Day": 1,
+    "Money": 100,
+    "Plots": [],
+    "Season": "Summer",
+    "Weather": {
+        "Name": "Windy",
+        "Left": 1
+    }
+}

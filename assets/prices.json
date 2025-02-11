@@ -1,0 +1,14 @@
+{
+    "fertilizer": {
+        "amount": 900,
+        "base_price": 1000
+    },
+    "liquid_fertilizer":{
+        "amount": 1500,
+        "base_price": 1000
+    },
+    "pesticide": {
+        "amount": 1500,
+        "base_price": 1000
+    }
+}
