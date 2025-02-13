@@ -1,7 +1,7 @@
 {
     "Day": 1,
     "Money": 100,
-    "Plots": [],
+    "Fields": [{"ID": 1, "Size": 2, "Crop": "Corn", "Growth": 3}],
     "Season": "Summer",
     "Weather": {
         "Name": "Windy",

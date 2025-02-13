@@ -3,12 +3,12 @@ package state
 type GameState struct {
     Day     int
     Money   int
-    Plots   []Plot  
+    Fields   []Field  
     Season  string
     Weather Weather
 }
 
-type Plot struct { 
+type Field struct { 
     ID      int
     Size    int    
     Crop    string  

@@ -8,9 +8,7 @@ import (
 )
 
 func main() {
-
 	gameState := storage.LoadSave()
-
 	cli.PrintStatus(gameState)
-	
+	cli.ReadCommand(gameState)
 }

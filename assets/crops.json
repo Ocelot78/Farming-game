@@ -1,11 +1,11 @@
 {
-    "wheat": {
+    "Wheat": {
         "growth_months": 3,
         "plant_months": ["April", "May", "September", "October"],
         "harvest_months": ["July", "August"],
         "base_price": 700
     },
-    "corn": {
+    "Corn": {
         "growth_months": 3,
         "plant_months": ["April", "May"],
         "harvest_months": ["October", "November"],
