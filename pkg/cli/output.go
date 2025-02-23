@@ -2,9 +2,7 @@ package cli
 
 import (
 	"fmt"
-	"os"
 
-	"github.com/olekukonko/tablewriter"
 	"farming_game/pkg/state"
 )
 
@@ -15,27 +13,52 @@ func PrintStatus(state state.GameState) {
 	" | ", state.Weather.Name,
 	" | Money: ", state.Money,
 	"\n")
-
 }	
 func ReadCommand(state state.GameState) {
 	var command string
+	var target int
+	fmt.Print("$")
 	fmt.Scanln(&command)
 	if command == "" {
-		fmt.Print("You must enter a command")	
+		fmt.Print("You must enter a command \n")	
 	}else {
-		parsedCommand := ParseCommand(command)	
-		switch parsedCommand.Action{
+		switch command {
 		case "show":
-			switch parsedCommand.Target{
-				case "fields":
-					table := tablewriter.NewWriter(os.Stdout)
-					table.SetHeader([]string{"ID", "Crop", "Growth", "Size"})
-					for _, Field := range state.Fields {
-						row := []string{fmt.Sprint(Field.ID),Field.Crop, fmt.Sprint(Field.Growth), fmt.Sprint(Field.Size)}
-						table.Append(row)
-					}
-					table.Render()
+			fmt.Print("What do you want to see?\n",
+			"1.Day State\n",
+			"2.Fields\n",
+			"3.Machines\n",
+			"4.Silo\n")
+			fmt.Print("$")
+			fmt.Scanln(&target)
+			switch target {
+			case 1:
+				PrintStatus(state)
+			case 2:
+				ShowFields(state)
+			case 3:
+				Disabled()
+			case 4:
+				Disabled()
+			default:
+				fmt.Print("Unkown command try again.")
 			}
+		case "shop":
+			fmt.Print("1.Buy machines\n2.Sell Machines")
+			fmt.Print("$")
+			fmt.Scanln(&target)
+			switch target {
+			case 1:
+				
+			case 2:
+				Disabled()
+			default:
+				fmt.Print("Unkown command try again.")
+			}
+		case "exit":
+			ExitGame()
+		default:
+			fmt.Print("Unkown command try again.")
 		}
 	}
 }

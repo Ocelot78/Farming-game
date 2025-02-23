@@ -2,8 +2,9 @@ package state
 
 type GameState struct {
     Day     int
+    Hour    int
     Money   int
-    Fields   []Field  
+    Fields  []Field  
     Season  string
     Weather Weather
 }
