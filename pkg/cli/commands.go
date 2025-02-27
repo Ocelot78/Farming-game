@@ -29,8 +29,14 @@ func ShowFields(state state.GameState) {
 	}
 	table.Render()
 }
-func ShopBuy() {
-	
+func Tractors(shop state.Shop) {
+	table := tablewriter.NewWriter(os.Stdout)
+	table.SetHeader([]string{"ID","Name", "Power index", "Price"})
+	for _, Tractor := range shop.Tractors {
+		row := []string{fmt.Sprint(Tractor.Name),fmt.Sprint(Tractor.PowerIndex),fmt.Sprint(Tractor.Price)}
+		table.Append(row)
+	}
+	table.Render()
 }
 func ExitGame() {
 	os.Exit(0)

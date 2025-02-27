@@ -1,10 +1,11 @@
 package storage
 
 import (
-	"farming_game/pkg/state"
 	"os"
 	"encoding/json"
 	"log"
+
+	"farming_game/pkg/state"
 )
 
 func LoadSave() state.GameState {
