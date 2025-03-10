@@ -17,7 +17,7 @@ func PrintStatus(state state.GameState) {
 func ReadCommand(state state.GameState, shop state.Shop) {
 	var command string
 	var target int
-	fmt.Print("$")
+	fmt.Print("farmer@farm-os:~$")
 	fmt.Scanln(&command)
 	if command == "" {
 		fmt.Print("You must enter a command \n")	
@@ -31,7 +31,7 @@ func ReadCommand(state state.GameState, shop state.Shop) {
 			"2.Fields\n",
 			"3.Machines\n",
 			"4.Silo\n")
-			fmt.Print("$")
+			fmt.Print("farmer@farm-os:~/show$")
 			fmt.Scanln(&target)
 			switch target {
 			case 1:
@@ -46,19 +46,23 @@ func ReadCommand(state state.GameState, shop state.Shop) {
 				fmt.Print("Unknown command try again.")
 			}
 		case "shop":
-			fmt.Print("1.Buy machines\n2.Sell Machines")
-			fmt.Print("$")
+			fmt.Print("1.Buy machines\n2.Sell Machines\n")
+			fmt.Print("farmer@farm-os:~/shop$")
 			fmt.Scanln(&target)
 			switch target {
 			case 1:
 				fmt.Print("What do you want to buy?\n",
 				"1.Tractors\n",
 				"2.Harvesters\n")
-				fmt.Print("$")
+				fmt.Print("farmer@farm-os:~/shop/buy$")
 				fmt.Scanln(&target)
 				switch target {
 				case 1:
+					fmt.Print("Select thing you want to buy\n",
+					"0 - Exit shop\n")
 					Tractors(shop)
+					fmt.Print("farmer@farm-os:~/shop/buy/tractors$")
+					fmt.Scanln(&target)
 				}
 			case 2:
 				Disabled()
