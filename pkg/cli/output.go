@@ -30,7 +30,8 @@ func ReadCommand(state state.GameState, shop state.Shop) {
 			"1.Day State\n",
 			"2.Fields\n",
 			"3.Machines\n",
-			"4.Silo\n")
+			"4.Silo\n",
+			".. to go back")
 			fmt.Print("farmer@farm-os:~/show$")
 			fmt.Scanln(&target)
 			switch target {

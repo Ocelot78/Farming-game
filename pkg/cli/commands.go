@@ -5,7 +5,7 @@ import (
 	"os"
 	
 	"github.com/olekukonko/tablewriter"
-	"strings"
+
 
 	"farming_game/pkg/state"
 )
@@ -13,10 +13,6 @@ import (
 type Command struct {
 	Action 	string
 	Target	string
-}
-func ParseCommand(input string) Command {
-	Parser := strings.Split(input ,"-",)
-	return Command{Action: Parser[0], Target: Parser[1]}
 }
 func ShowFields(state state.GameState) {
 	table := tablewriter.NewWriter(os.Stdout)
@@ -31,7 +27,7 @@ func Tractors(shop state.Shop) {
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader([]string{"ID","Name", "Power index", "Price"})
 	for _, Tractor := range shop.Tractors {
-		row := []string{fmt.Sprint(Tractor.Name),fmt.Sprint(Tractor.PowerIndex),fmt.Sprint(Tractor.Price)}
+		row := []string{fmt.Sprint(Tractor.ID),fmt.Sprint(Tractor.Name),fmt.Sprint(Tractor.PowerIndex),fmt.Sprint(Tractor.Price)}
 		table.Append(row)
 	}
 	table.Render()

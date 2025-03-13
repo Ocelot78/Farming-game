@@ -10,10 +10,10 @@ import (
 
 func main() {
 	gameState := storage.LoadSave()
-	shopState := storage.LoadShop()
+	shopTractors:= storage.LoadTractors()
 	cli.PrintStatus(gameState)
 	for {
-		cli.ReadCommand(gameState, shopState)
+		cli.ReadCommand(gameState, shopTractors)
 	}
 
 }

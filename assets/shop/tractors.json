@@ -1,8 +1,8 @@
 {
-    "Tractor1" : [{
+    "Tractor1": {
         "ID": 1,
         "Name": "Tractor Test1",
         "PowerIndex": 2,
         "Price": 5000
-    }]
+    }
 }
