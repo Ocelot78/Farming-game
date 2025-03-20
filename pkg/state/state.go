@@ -7,6 +7,8 @@ type GameState struct {
     Fields  []Field  
     Season  string
     Weather Weather
+    OwnedT  Tractor
+    
 }
 
 type Field struct { 

@@ -17,6 +17,7 @@ func PrintStatus(state state.GameState) {
 func ReadCommand(state state.GameState, shop state.Shop) {
 	var command string
 	var target int
+	var targetString string
 	fmt.Print("farmer@farm-os:~$")
 	fmt.Scanln(&command)
 	if command == "" {
@@ -24,14 +25,19 @@ func ReadCommand(state state.GameState, shop state.Shop) {
 	}else {
 		switch command {
 		case "help": 
-			fmt.Print("")
+			fmt.Print("HELP\n",
+			"help - enter help menu\n",
+			"show - enter show menu\n",
+			"shop - enter shop menu\n",
+			"exit - exit game\n",
+		)
 		case "show":
 			fmt.Print("What do you want to see?\n",
 			"1.Day State\n",
 			"2.Fields\n",
 			"3.Machines\n",
 			"4.Silo\n",
-			".. to go back")
+			"0 to go back\n")
 			fmt.Print("farmer@farm-os:~/show$")
 			fmt.Scanln(&target)
 			switch target {
@@ -40,13 +46,16 @@ func ReadCommand(state state.GameState, shop state.Shop) {
 			case 2:
 				ShowFields(state)
 			case 3:
-				Disabled()
+				ShowTractors(state)
 			case 4:
 				Disabled()
+			case 0:
+				break
 			default:
-				fmt.Print("Unknown command try again.")
+				Unknown()
 			}
 		case "shop":
+			var machineID int
 			fmt.Print("1.Buy machines\n2.Sell Machines\n")
 			fmt.Print("farmer@farm-os:~/shop$")
 			fmt.Scanln(&target)
@@ -63,17 +72,26 @@ func ReadCommand(state state.GameState, shop state.Shop) {
 					"0 - Exit shop\n")
 					Tractors(shop)
 					fmt.Print("farmer@farm-os:~/shop/buy/tractors$")
-					fmt.Scanln(&target)
+					fmt.Scanln(&targetString)
+					switch targetString {
+					case "0":
+						break
+					case "buy":
+						fmt.Print("Enter ID of a tractor you want to buy.\n")
+						fmt.Print("farmer@farm-os:~/shop/buy/tractors$")
+						fmt.Scanln(&machineID)
+						BuyTractors(state, shop, machineID )
+					}
 				}
 			case 2:
 				Disabled()
 			default:
-				fmt.Print("Unknown command try again.")
+				Unknown()
 			}
 		case "exit":
 			ExitGame()
 		default:
-			fmt.Print("Unknown command try again.")
+			Unknown()
 		}
 	}
 }

@@ -1,7 +1,7 @@
 {
     "Day": 1,
     "Hour": 12,
-    "Money": 100,
+    "Money": 50000,
     "Fields": [{"ID": 1, "Size": 2, "Crop": "Corn", "Growth": 3}],
     "Season": "Summer",
     "Weather": {

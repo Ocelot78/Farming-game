@@ -3,9 +3,8 @@ package cli
 import (
 	"fmt"
 	"os"
-	
-	"github.com/olekukonko/tablewriter"
 
+	"github.com/olekukonko/tablewriter"
 
 	"farming_game/pkg/state"
 )
@@ -23,6 +22,9 @@ func ShowFields(state state.GameState) {
 	}
 	table.Render()
 }
+func ShowTractors(state state.GameState){
+	fmt.Print(state.OwnedT)
+}
 func Tractors(shop state.Shop) {
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader([]string{"ID","Name", "Power index", "Price"})
@@ -32,8 +34,19 @@ func Tractors(shop state.Shop) {
 	}
 	table.Render()
 }
+func BuyTractors(state state.GameState, shop state.Shop, userInput int){
+	for _, Tractor := range shop.Tractors {
+		if Tractor.ID == userInput && Tractor.Price <= state.Money{
+			state.OwnedT = Tractor
+			break
+		}
+	}
+}
 func ExitGame() {
 	os.Exit(0)
+}
+func Unknown() {
+	fmt.Print("Unknown command try again.\n")
 }
 func Disabled() {
 	fmt.Print("This feature is disabled\n")
